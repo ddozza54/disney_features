@@ -1,4 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
+import { Link } from 'react-router-dom';
 
 interface Character {
     id: number;
@@ -16,16 +17,15 @@ export default function Home() {
     if (isError) {
         return <span>Error: {error.message}</span>
     }
-
-    console.log(data)
     return (
         <div>
             Home
-            Success!
-            {data.map(character => <div key={character.id}>
-                <img src={`${character.imageUrl}`} />
-                <h4>{character.name}</h4>
-            </div>)}
+            {data.slice(0, 100).map(character => <Link to={`/character/${character.id}`}>
+                <div key={character.id}>
+                    <img src={`${character.imageUrl}`} />
+                    <h4>{character.name}</h4>
+                </div>
+            </Link>)}
         </div>
     );
 }
