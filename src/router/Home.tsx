@@ -1,15 +1,11 @@
 import { useQuery } from '@tanstack/react-query';
 import { Link } from 'react-router-dom';
+import { fetchDisneyCharacters } from '../api';
+import { Character } from '../types/types';
 
-interface Character {
-    id: number;
-    name: string;
-    imageUrl: string;
-}
 export default function Home() {
-    const fetchDisneyCharacters = async () =>
-        await fetch(`https://disney_api.nomadcoders.workers.dev/characters`).then(res => res.json()).then(data => data.slice(100));
-    const { isPending, isError, data, error } = useQuery<Character[]>({ queryKey: ['characters'], queryFn: fetchDisneyCharacters })
+    const { isPending, isError, data, error } =
+        useQuery<Character[]>({ queryKey: ['characters'], queryFn: fetchDisneyCharacters })
 
     if (isPending) {
         return <span>Loading...</span>
