@@ -14,11 +14,13 @@ export default function Home() {
         return <span>Error: {error.message}</span>
     }
     return (
-        <div>
-            Home
+        <div className='flex flex-wrap'>
             {data.slice(0, 100).map(character => <Link to={`/character/${character.id}`}>
-                <div key={character.id}>
-                    <img src={`${character.imageUrl}`} />
+                <div key={character.id}
+                    className='p-5'>
+                    <img src={`${character.imageUrl}`}
+                        className='rounded-lg'
+                    />
                     <h4>{character.name}</h4>
                 </div>
             </Link>)}

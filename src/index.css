@@ -4,7 +4,12 @@
 @tailwind utilities;
 
 body {
-  font-family: 'Handlee';
   width: 100%;
+  background-image: url('src/assets/bg.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: rgb(0, 18, 57);
+  font-family: 'Handlee';
   height: 100vh;
 }

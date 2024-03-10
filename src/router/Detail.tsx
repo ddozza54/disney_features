@@ -15,7 +15,6 @@ export default function Detail() {
         return <span>캐릭터 정보를 불러오는 데 실패했습니다</span>
     }
 
-    console.log(data)
     return (
         <div key={data.id}>
             <img src={`${data.imageUrl}`} />

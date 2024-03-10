@@ -5,9 +5,8 @@ import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 function App() {
 
   return (
-    <div className='w-full flex flex-col'>
+    <div className='w-full flex flex-col justify-center'>
       <Header />
-      App
       <Outlet />
       <ReactQueryDevtools initialIsOpen={true} />
 
