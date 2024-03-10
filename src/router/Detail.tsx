@@ -17,7 +17,8 @@ export default function Detail() {
 
     return (
         <div key={data.id}>
-            <img src={`${data.imageUrl}`} />
+            <img src={`${data.imageUrl}`}
+                className='w-30' />
             <h2>{data.name}</h2>
             <h4>Films</h4>
             <ul>
