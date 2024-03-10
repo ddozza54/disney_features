@@ -1,16 +1,12 @@
 import { useQuery } from '@tanstack/react-query';
 import { Link } from 'react-router-dom';
-import { fetchDisneyCharacters } from '../api';
+import { addDefaultImg, fetchDisneyCharacters } from '../api';
 import { Character } from '../types/types';
-import { SyntheticEvent } from 'react';
-import mickeyImage from '../assets/mickey.png'
 
 export default function Home() {
     const { isPending, isError, data, error } =
         useQuery<Character[]>({ queryKey: ['characters'], queryFn: fetchDisneyCharacters })
-    const addDefaultImg = (e: SyntheticEvent<HTMLImageElement, Event>) => {
-        e.currentTarget.src = mickeyImage;
-    };
+
     if (isPending) {
         return <span>Loading...</span>
     }
@@ -26,7 +22,7 @@ export default function Home() {
                             onError={addDefaultImg}
                             className='rounded-lg w-40 h-40'
                         />
-                        <h4 className='text-white text-xl pt-1 text-center'>{character.name}</h4>
+                        <h4 className='text-xl pt-1 text-center'>{character.name}</h4>
                     </div>
                 </Link>)}
         </div>
