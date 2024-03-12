@@ -7,10 +7,7 @@ const baseURL =
 export const fetchDisneyCharacters = async () =>
   await fetch(`${baseURL}`)
     .then((res) => res.json())
-    .then((data) => {
-      console.log(data);
-      return data.slice(200, 300);
-    });
+    .then((data) => data.slice(200, 300));
 
 export const fetchCharacterData = async (id?: string) =>
   await fetch(`${baseURL}/${id}`).then((res) => res.json());
