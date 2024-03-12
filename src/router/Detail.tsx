@@ -7,7 +7,7 @@ import pointImg from '../assets/point.png';
 export default function Detail() {
     const { id } = useParams();
     const { isPending, isError, data, error } =
-        useQuery<CharacterData>({ queryKey: ['Character'], queryFn: () => fetchCharacterData(id) })
+        useQuery<CharacterData>({ queryKey: ['Character', id], queryFn: () => fetchCharacterData(id) })
     const navigate = useNavigate();
 
     if (isPending) {
