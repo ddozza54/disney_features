@@ -17,7 +17,6 @@ export default function Detail() {
         console.log(`Error: ${error.message}`)
         return <span>캐릭터 정보를 불러오는 데 실패했습니다</span>
     }
-
     return (
         <div className=' p-10'>
             <button onClick={() => { navigate(-1) }}>
@@ -32,7 +31,7 @@ export default function Detail() {
                     <h2 className='text-4xl font-bold pb-10' >{data.name}</h2>
                     <h4 className='text-xl font-bold'>{data.name}'s Films</h4>
                     <ul className='py-2 pb-10'>
-                        {data.films.map(film => <li>- {film}</li>)}
+                        {data.films.map((film, i) => <li key={`${i}${film}`}>- {film}</li>)}
                     </ul>
                     <Link to={`${data.sourceUrl}`} target='_blank'
                         className='text-blue-600'
